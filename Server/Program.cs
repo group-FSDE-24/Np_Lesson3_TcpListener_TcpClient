@@ -23,14 +23,14 @@ class Program
 
         var stream = client.GetStream();
 
-        var sr = new StreamReader(stream);
-        var sw = new StreamWriter(stream);
+        var br = new BinaryReader(stream);
+        var bw = new BinaryWriter(stream);
 
 
         while (true)
         {
-            Console.WriteLine(sr.ReadToEnd());
-            sw.Write("Good Message");
+            Console.WriteLine(br.ReadString());
+            bw.Write("Good Message");
         }
 
     }

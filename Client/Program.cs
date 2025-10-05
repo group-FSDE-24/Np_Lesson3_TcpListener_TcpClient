@@ -12,15 +12,15 @@ class Program
 
         var stream = client.GetStream();
 
-        var sw = new StreamWriter(stream);
-        var sr = new StreamReader(stream);
+        var bw = new BinaryWriter(stream);
+        var br = new BinaryReader(stream);
 
 
         while (true)
         {
             Console.WriteLine("Client to Message....");
-            sw.Write(Console.ReadLine());
-            Console.WriteLine($"Server answer: {sr.ReadToEnd()}");
+            bw.Write(Console.ReadLine() ?? "Okey");
+            Console.WriteLine($"Server answer: {br.ReadString()}");
         }
 
 
