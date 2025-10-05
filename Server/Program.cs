@@ -26,12 +26,26 @@ class Program
         var br = new BinaryReader(stream);
         var bw = new BinaryWriter(stream);
 
+        ////////////////////////////////////
+        ///
 
-        while (true)
-        {
-            Console.WriteLine(br.ReadString());
-            bw.Write("Good Message");
-        }
+        // while (true)
+        // {
+        //     Console.WriteLine(br.ReadString());
+        //     bw.Write("Good Message");
+        // }
+
+        ////////////////////////////////////
+
+        var filePath = @$"C:\Users\{Environment.UserName}\Downloads\ImkansizCrush.jpg";
+
+        var bytes = File.ReadAllBytes(filePath);
+
+        stream.Write(bytes,0, bytes.Length);
+
+
+        Console.WriteLine("Completed Transfer data");
+        Console.ReadLine();
 
     }
 }

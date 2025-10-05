@@ -15,16 +15,24 @@ class Program
         var bw = new BinaryWriter(stream);
         var br = new BinaryReader(stream);
 
+        //////////////////////////
+        ///
 
-        while (true)
-        {
-            Console.WriteLine("Client to Message....");
-            bw.Write(Console.ReadLine() ?? "Okey");
-            Console.WriteLine($"Server answer: {br.ReadString()}");
-        }
+        // while (true)
+        // {
+        //     Console.WriteLine("Client to Message....");
+        //     bw.Write(Console.ReadLine() ?? "Okey");
+        //     Console.WriteLine($"Server answer: {br.ReadString()}");
+        // }
 
+        //////////////////////////
 
+        var fileStream = new FileStream("SecretLove.jpg",FileMode.Create, FileAccess.Write);
 
+        stream.CopyTo(fileStream);
+
+        fileStream.Flush();
+        fileStream.Close();
 
     }
 }
